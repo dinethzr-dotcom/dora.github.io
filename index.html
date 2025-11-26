@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bella Clothing | Home</title>
+
+<style>
+    body { margin:0; font-family: Arial, sans-serif; background:#fafafa; color:#333; }
+
+    header {
+        background:#222;
+        color:white;
+        padding:15px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border-bottom:3px solid #ff66a3;
+        text-align: center;
+    }
+
+    header h1 {
+        margin:0;
+        font-size:1.6em;
+        font-weight:bold;
+    }
+
+    nav {
+        background:#333;
+        padding:12px;
+        display:flex;
+        gap:20px;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    nav a {
+        color:white;
+        text-decoration:none;
+        font-weight:bold;
+        padding:6px 12px;
+        border-radius:6px;
+        transition:0.2s;
+    }
+    nav a:hover {
+        background:#ff66a3;
+        color:#000;
+    }
+
+    .hero {
+        text-align:center;
+        padding:40px 20px;
+        background:white;
+    }
+
+    .hero h2 {
+        font-size:1.8em;
+        color:#ff66a3;
+        font-weight:bold;
+    }
+
+    .products {
+        display:grid;
+        grid-template-columns:repeat(auto-fill, minmax(160px,1fr));
+        gap:16px;
+        padding:20px;
+        max-width:900px;
+        margin:auto;
+    }
+
+    .card {
+        background:white;
+        padding:15px;
+        border-radius:12px;
+        box-shadow:0 3px 10px rgba(0,0,0,0.1);
+        text-align:center;
+    }
+    .card img {
+        width:100%;
+        border-radius:10px;
+    }
+    .card h3 { margin:12px 0 4px; }
+    .card p { margin:0; font-size:0.9em; }
+
+    @media (max-width:600px) {
+        header h1 { font-size:1.3em; }
+        .hero h2 { font-size:1.4em; }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>DORA CLOTHING</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="bella.html">Dora Products</a>
+    <a href="bella1.html">Details</a>
+</nav>
+
+<section class="hero">
+    <h2>New Arrivals • Elegant & Modern</h2>
+    <p>Discover the latest Bella Clothing collection.</p>
+</section>
+
+<div class="products">
+
+    <div class="card">
+        <img src="https://via.placeholder.com/300x350" alt="">
+        <h3>Floral Summer Dress</h3>
+        <p>Rs. 3,250</p>
+    </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/300x350" alt="">
+        <h3>Cotton Tee</h3>
+        <p>Rs. 1,250</p>
+    </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/300x350" alt="">
+        <h3>Casual Denim</h3>
+        <p>Rs. 4,450</p>
+    </div>
+
+</div>
+
+</body>
+</html>
