@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moose Ladies' T-Shirt Shops</title>
+
 <style>
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f4f4; margin:0; padding:0; color: #333; }
 
@@ -20,7 +21,7 @@
 
     .shop-container { display: flex; flex-wrap: wrap; justify-content: center; margin: 10px; gap: 15px; }
 
-    .shop-card { background: #fff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); width: 280px; padding: 20px; transition: transform 0.2s; }
+    .shop-card { background: #fff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); width: 300px; padding: 20px; transition: transform 0.2s; }
     .shop-card:hover { transform: translateY(-3px); }
     .shop-card h3 { margin-top: 0; color: #222; font-size: 1.2em; }
     .shop-card p { margin: 5px 0; font-size: 0.95em; line-height: 1.4; }
@@ -31,21 +32,10 @@
 
     .color-dot { width: 15px; height: 15px; border-radius: 50%; margin: 3px; border: 1px solid #ccc; }
 
-    #errorMsg {
-        display: none;
-        text-align:center;
-        font-weight:bold;
-        color:red;
-        margin:20px 0;
-        font-size:1.1em;
-    }
-
-    iframe {
-        border-radius: 10px;
-    }
-
+    iframe { width: 100%; height: 180px; border:0; border-radius: 10px; margin-top: 10px; }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -59,6 +49,7 @@
     <a href="moosejustdropped.html">Just Dropped</a>
 </nav>
 
+<!-- Filters -->
 <div class="filters">
     <label><strong>Town:</strong></label>
     <select id="townSelect" onchange="filterShops()">
@@ -92,129 +83,113 @@
 
 <div class="shop-container" id="shopsContainer">
 
-    <!-- Gampaha -->
-    <div class="shop-card" data-town="Gampaha" data-sizes="XS,S,M,L" data-colors="White,Black,Pink">
-        <h3>Cool Planet – Gampaha</h3>
-        <p><span class="label">Address:</span> Colombo Road, Gampaha</p>
-        <p><span class="label">Phone:</span> 011 565 5555</p>
+<!-- Gampaha -->
+<div class="shop-card" data-town="Gampaha" data-sizes="XS,S,M,L" data-colors="White,Black,Pink">
+    <h3>Cool Planet – Gampaha</h3>
+    <p><span class="label">Address:</span> Colombo Road, Gampaha</p>
+    <p><span class="label">Phone:</span> 011 565 5555</p>
 
-        <!-- Google Map -->
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.73232046228!2d79.98550395!3d7.091259049999999"
-            width="100%" height="200" loading="lazy"></iframe>
+    <p><span class="label">Sizes:</span></p>
+    <div class="sizes"><span>XS</span><span>S</span><span>M</span><span>L</span></div>
 
-        <p><span class="label">Available Sizes:</span></p>
-        <div class="sizes"><span>XS</span><span>S</span><span>M</span><span>L</span></div>
-        <p><span class="label">Colors:</span></p>
-        <div class="colors">
-            <div class="color-dot" style="background:white;"></div>
-            <div class="color-dot" style="background:black;"></div>
-            <div class="color-dot" style="background:pink;"></div>
-        </div>
+    <p><span class="label">Colors:</span></p>
+    <div class="colors">
+        <div class="color-dot" style="background:white;"></div>
+        <div class="color-dot" style="background:black;"></div>
+        <div class="color-dot" style="background:pink;"></div>
     </div>
 
-    <div class="shop-card" data-town="Gampaha" data-sizes="M,L,XL,2XL" data-colors="Beige,Black">
-        <h3>Spring & Summer – Gampaha</h3>
-        <p><span class="label">Address:</span> Bandarawatte, Gampaha</p>
-        <p><span class="label">Phone:</span> 033 222 7711</p>
+    <!-- Map -->
+    <iframe src="https://www.google.com/maps?q=Cool+Planet+Gampaha&output=embed"></iframe>
+</div>
 
-        <!-- Google Map -->
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.73232046228!2d79.98550395!3d7.091259049999999"
-            width="100%" height="200" loading="lazy"></iframe>
+<div class="shop-card" data-town="Gampaha" data-sizes="M,L,XL,2XL" data-colors="Beige,Black">
+    <h3>Spring & Summer – Gampaha</h3>
+    <p><span class="label">Address:</span> Bandarawatte, Gampaha</p>
+    <p><span class="label">Phone:</span> 033 222 7711</p>
 
-        <p class="label">Sizes:</p>
-        <div class="sizes"><span>M</span><span>L</span><span>XL</span><span>2XL</span></div>
-        <p class="label">Colors:</p>
-        <div class="colors">
-            <div class="color-dot" style="background:beige;"></div>
-            <div class="color-dot" style="background:black;"></div>
-        </div>
+    <div class="sizes"><span>M</span><span>L</span><span>XL</span><span>2XL</span></div>
+
+    <div class="colors">
+        <div class="color-dot" style="background:beige;"></div>
+        <div class="color-dot" style="background:black;"></div>
     </div>
 
-    <!-- Kiribathgoda -->
-    <div class="shop-card" data-town="Kiribathgoda" data-sizes="S,M,L" data-colors="Lavender,White">
-        <h3>ODEL – Kiribathgoda</h3>
-        <p><span class="label">Address:</span> Kandy Road, Kiribathgoda</p>
-        <p><span class="label">Phone:</span> 011 288 9000</p>
+    <iframe src="https://www.google.com/maps?q=Spring+and+Summer+Gampaha&output=embed"></iframe>
+</div>
 
-        <!-- Google Map -->
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7922.332635170979!2d79.9565499!3d6.9808102"
-            width="100%" height="200" loading="lazy"></iframe>
+<!-- Kiribathgoda -->
+<div class="shop-card" data-town="Kiribathgoda" data-sizes="S,M,L" data-colors="Lavender,White">
+    <h3>ODEL – Kiribathgoda</h3>
+    <p><span class="label">Address:</span> Kandy Road, Kiribathgoda</p>
+    <p><span class="label">Phone:</span> 011 288 9000</p>
 
-        <p class="label">Sizes:</p>
-        <div class="sizes"><span>S</span><span>M</span><span>L</span></div>
-        <p class="label">Colors:</p>
-        <div class="colors">
-            <div class="color-dot" style="background:lavender;"></div>
-            <div class="color-dot" style="background:white;"></div>
-        </div>
+    <div class="sizes"><span>S</span><span>M</span><span>L</span></div>
+
+    <div class="colors">
+        <div class="color-dot" style="background:lavender;"></div>
+        <div class="color-dot" style="background:white;"></div>
     </div>
 
-    <div class="shop-card" data-town="Kiribathgoda" data-sizes="XS,S,M,XL" data-colors="Black,Pink">
-        <h3>Fashion Bug – Kiribathgoda</h3>
-        <p><span class="label">Address:</span> 123 Kandy Road, Kiribathgoda</p>
-        <p><span class="label">Phone:</span> 011 247 7777</p>
+    <iframe src="https://www.google.com/maps?q=ODEL+Kiribathgoda&output=embed"></iframe>
+</div>
 
-        <!-- Google Map -->
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7922.332635170979!2d79.9565499!3d6.9808102"
-            width="100%" height="200" loading="lazy"></iframe>
+<div class="shop-card" data-town="Kiribathgoda" data-sizes="XS,S,M,XL" data-colors="Black,Pink">
+    <h3>Fashion Bug – Kiribathgoda</h3>
+    <p><span class="label">Address:</span> 123 Kandy Road, Kiribathgoda</p>
+    <p><span class="label">Phone:</span> 011 247 7777</p>
 
-        <p class="label">Sizes:</p>
-        <div class="sizes"><span>XS</span><span>S</span><span>M</span><span>XL</span></div>
-        <p class="label">Colors:</p>
-        <div class="colors">
-            <div class="color-dot" style="background:black;"></div>
-            <div class="color-dot" style="background:pink;"></div>
-        </div>
+    <div class="sizes"><span>XS</span><span>S</span><span>M</span><span>XL</span></div>
+
+    <div class="colors">
+        <div class="color-dot" style="background:black;"></div>
+        <div class="color-dot" style="background:pink;"></div>
     </div>
 
-    <!-- Kandy -->
-    <div class="shop-card" data-town="Kandy" data-sizes="XS,S,M,L" data-colors="White,Beige,Black">
-        <h3>Malayasia Bazaar – Kandy</h3>
-        <p><span class="label">Address:</span> Dalada Veediya, Kandy</p>
-        <p><span class="label">Phone:</span> 081 223 1100</p>
+    <iframe src="https://www.google.com/maps?q=Fashion+Bug+Kiribathgoda&output=embed"></iframe>
+</div>
 
-        <!-- Google Map -->
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63205.71272980708!2d80.5838!3d7.2906"
-            width="100%" height="200" loading="lazy"></iframe>
+<!-- Kandy -->
+<div class="shop-card" data-town="Kandy" data-sizes="XS,S,M,L" data-colors="White,Beige,Black">
+    <h3>Malayasia Bazaar – Kandy</h3>
+    <p><span class="label">Address:</span> Dalada Veediya, Kandy</p>
+    <p><span class="label">Phone:</span> 081 223 1100</p>
 
-        <p class="label">Sizes:</p>
-        <div class="sizes"><span>XS</span><span>S</span><span>M</span><span>L</span></div>
-        <p class="label">Colors:</p>
-        <div class="colors">
-            <div class="color-dot" style="background:white;"></div>
-            <div class="color-dot" style="background:beige;"></div>
-            <div class="color-dot" style="background:black;"></div>
-        </div>
+    <div class="sizes"><span>XS</span><span>S</span><span>M</span><span>L</span></div>
+
+    <div class="colors">
+        <div class="color-dot" style="background:white;"></div>
+        <div class="color-dot" style="background:beige;"></div>
+        <div class="color-dot" style="background:black;"></div>
     </div>
 
-    <div class="shop-card" data-town="Kandy" data-sizes="M,L,XL" data-colors="Lavender,Pink">
-        <h3>Glitz – Kandy</h3>
-        <p><span class="label">Address:</span> Peradeniya Road, Kandy</p>
-        <p><span class="label">Phone:</span> 081 220 5500</p>
+    <iframe src="https://www.google.com/maps?q=Malayasia+Bazaar+Kandy&output=embed"></iframe>
+</div>
 
-        <!-- Google Map -->
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63205.71272980708!2d80.5838!3d7.2906"
-            width="100%" height="200" loading="lazy"></iframe>
+<div class="shop-card" data-town="Kandy" data-sizes="M,L,XL" data-colors="Lavender,Pink">
+    <h3>Glitz – Kandy</h3>
+    <p><span class="label">Address:</span> Peradeniya Road, Kandy</p>
+    <p><span class="label">Phone:</span> 081 220 5500</p>
 
-        <p class="label">Sizes:</p>
-        <div class="sizes"><span>M</span><span>L</span><span>XL</span></div>
-        <p class="label">Colors:</p>
-        <div class="colors">
-            <div class="color-dot" style="background:lavender;"></div>
-            <div class="color-dot" style="background:pink;"></div>
-        </div>
+    <div class="sizes"><span>M</span><span>L</span><span>XL</span></div>
+
+    <div class="colors">
+        <div class="color-dot" style="background:lavender;"></div>
+        <div class="color-dot" style="background:pink;"></div>
     </div>
+
+    <iframe src="https://www.google.com/maps?q=Glitz+Kandy&output=embed"></iframe>
+</div>
 
 </div>
 
-<p id="errorMsg">❌ No shops found for the selected filters.</p>
+<!-- Error Message -->
+<p id="errorMsg" style="text-align:center; color:red; font-weight:bold; display:none;">
+    ❌ No shops found for the selected filters.
+</p>
 
+
+<!-- Filtering Script -->
 <script>
 function filterShops() {
     const town = document.getElementById('townSelect').value;
@@ -248,4 +223,3 @@ function filterShops() {
 
 </body>
 </html>
-
