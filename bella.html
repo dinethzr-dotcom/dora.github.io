@@ -3,114 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bella Clothing | Collection</title>
-
+<title>Moose Ladies' T-Shirt Shops</title>
 <style>
-    body { margin:0; font-family:Arial, sans-serif; background:#fafafa; color:#333; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f4f4; margin:0; padding:0; color: #333; }
+    header { background: #222; color: #fff; padding: 15px 20px; display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+    header img { height: 50px; margin-right: 15px; }
+    header h1 { margin:0; font-size:1.5em; flex: 1 1 200px; text-align:center; }
 
-    header {
-        background:#222;
-        color:white;
-        padding:15px;
-        text-align:center;
-        border-bottom:3px solid #ff66a3;
-    }
+    nav { background: #333; padding: 10px 20px; display: flex; flex-wrap: wrap; justify-content: center; }
+    nav a { color: #fff; text-decoration: none; margin: 5px 15px; font-weight: bold; transition: 0.2s; }
+    nav a:hover { color: #ffcc00; }
 
-    header h1 {
-        margin:0; 
-        font-size:1.6em; 
-    }
+    .filters { text-align:center; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    select { padding: 8px; font-size: 1em; min-width: 150px; }
 
-    nav {
-        background:#333;
-        padding:12px;
-        display:flex;
-        justify-content:center;
-        gap:20px;
-        flex-wrap:wrap;
-    }
+    .shop-container { display: flex; flex-wrap: wrap; justify-content: center; margin: 10px; gap: 15px; }
 
-    nav a {
-        color:white;
-        text-decoration:none;
-        font-weight:bold;
-        padding:6px 12px;
-        border-radius:6px;
-        transition:0.2s;
-    }
-    nav a:hover { background:#ff66a3; color:#000; }
+    .shop-card { background: #fff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); width: 280px; padding: 20px; transition: transform 0.2s; }
+    .shop-card:hover { transform: translateY(-3px); }
+    .shop-card h3 { margin-top: 0; color: #222; font-size: 1.2em; }
+    .shop-card p { margin: 5px 0; font-size: 0.95em; line-height: 1.4; }
 
-    h2 {
-        text-align:center;
-        margin:20px 0;
-        color:#ff66a3;
-        font-size:1.5em;
-    }
+    .label { font-weight: bold; color: #555; display:inline-block; width:120px; }
+    .sizes span { background: #eee; border-radius: 4px; padding: 3px 6px; margin: 3px; font-size: 0.8em; }
+    .sizes, .colors { display: flex; flex-wrap: wrap; }
 
-    .grid {
-        max-width:950px;
-        margin:auto;
-        display:grid;
-        grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-        gap:20px;
-        padding:0 20px 40px;
-    }
-
-    .card {
-        background:white;
-        padding:15px;
-        border-radius:12px;
-        box-shadow:0 3px 10px rgba(0,0,0,0.1);
-        text-align:center;
-    }
-    .card img {
-        width:100%;
-        border-radius:10px;
-        margin-bottom:10px;
-    }
+    .color-dot { width: 15px; height: 15px; border-radius: 50%; margin: 3px; border: 1px solid #ccc; }
 
 </style>
 </head>
-
 <body>
 
-<header><h1>DORA CLOTHING</h1></header>
+<header>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKCSXc039TSXrlop1Qlx6XLaTfL7aGz49NzA&s">
+    <h1>Moose Ladies' Short-Sleeve T-Shirt Shops</h1>
+</header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="bella.html">Dora Products</a>
-    <a href="bella1.html">Details</a>
+    <a href="mooseshop.html">Shops</a>
+    <a href="moosecare.html">Care Instructions</a>
+    <a href="moosejustdropped.html">Just Dropped</a>
 </nav>
 
-<h2>Dora Clothing Collection</h2>
+<!-- Filters -->
+<div class="filters">
+    <label><strong>Town:</strong></label>
+    <select id="townSelect" onchange="filterShops()">
+        <option value="">--All Towns--</option>
+        <option value="Gampaha">Gampaha</option>
+        <option value="Kiribathgoda">Kiribathgoda</option>
+        <option value="Kandy">Kandy</option>
+    </select>
 
-<div class="grid">
+    <label><strong>Size:</strong></label>
+    <select id="sizeSelect" onchange="filterShops()">
+        <option value="">--Any Size--</option>
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="2XL">2XL</option>
+    </select>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/300x350">
-        <h3>Elegant Pink Top</h3>
-        <p>Rs. 1,950</p>
+    <label><strong>Color:</strong></label>
+    <select id="colorSelect" onchange="filterShops()">
+        <option value="">--Any Color--</option>
+        <option value="White">White</option>
+        <option value="Black">Black</option>
+        <option value="Pink">Pink</option>
+        <option value="Lavender">Lavender</option>
+        <option value="Beige">Beige</option>
+    </select>
+</div>
+
+<div class="shop-container" id="shopsContainer">
+
+<!-- Gampaha -->
+<div class="shop-card" data-town="Gampaha" data-sizes="XS,S,M,L" data-colors="White,Black,Pink">
+    <h3>Cool Planet – Gampaha</h3>
+    <p><span class="label">Address:</span> Colombo Road, Gampaha</p>
+    <p><span class="label">Phone:</span> 011 565 5555</p>
+    <p><span class="label">Available Sizes:</span></p>
+    <div class="sizes"><span>XS</span><span>S</span><span>M</span><span>L</span></div>
+    <p><span class="label">Colors:</span></p>
+    <div class="colors">
+        <div class="color-dot" style="background:white;"></div>
+        <div class="color-dot" style="background:black;"></div>
+        <div class="color-dot" style="background:pink;"></div>
     </div>
+</div>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/300x350">
-        <h3>Soft Linen Dress</h3>
-        <p>Rs. 3,750</p>
+<div class="shop-card" data-town="Gampaha" data-sizes="M,L,XL,2XL" data-colors="Beige,Black">
+    <h3>Spring & Summer – Gampaha</h3>
+    <p><span class="label">Address:</span> Bandarawatte, Gampaha</p>
+    <p><span class="label">Phone:</span> 033 222 7711</p>
+    <p class="label">Sizes:</p>
+    <div class="sizes"><span>M</span><span>L</span><span>XL</span><span>2XL</span></div>
+    <p class="label">Colors:</p>
+    <div class="colors">
+        <div class="color-dot" style="background:beige;"></div>
+        <div class="color-dot" style="background:black;"></div>
     </div>
+</div>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/300x350">
-        <h3>Premium Hoodie</h3>
-        <p>Rs. 4,250</p>
+<!-- Kiribathgoda -->
+<div class="shop-card" data-town="Kiribathgoda" data-sizes="S,M,L" data-colors="Lavender,White">
+    <h3>ODEL – Kiribathgoda</h3>
+    <p><span class="label">Address:</span> Kandy Road, Kiribathgoda</p>
+    <p><span class="label">Phone:</span> 011 288 9000</p>
+    <p class="label">Sizes:</p>
+    <div class="sizes"><span>S</span><span>M</span><span>L</span></div>
+    <p class="label">Colors:</p>
+    <div class="colors">
+        <div class="color-dot" style="background:lavender;"></div>
+        <div class="color-dot" style="background:white;"></div>
     </div>
+</div>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/300x350">
-        <h3>Wide Leg Pants</h3>
-        <p>Rs. 2,850</p>
+<div class="shop-card" data-town="Kiribathgoda" data-sizes="XS,S,M,XL" data-colors="Black,Pink">
+    <h3>Fashion Bug – Kiribathgoda</h3>
+    <p><span class="label">Address:</span> 123 Kandy Road, Kiribathgoda</p>
+    <p><span class="label">Phone:</span> 011 247 7777</p>
+    <p class="label">Sizes:</p>
+    <div class="sizes"><span>XS</span><span>S</span><span>M</span><span>XL</span></div>
+    <p class="label">Colors:</p>
+    <div class="colors">
+        <div class="color-dot" style="background:black;"></div>
+        <div class="color-dot" style="background:pink;"></div>
     </div>
+</div>
+
+<!-- Kandy -->
+<div class="shop-card" data-town="Kandy" data-sizes="XS,S,M,L" data-colors="White,Beige,Black">
+    <h3>Malayasia Bazaar – Kandy</h3>
+    <p><span class="label">Address:</span> Dalada Veediya, Kandy</p>
+    <p><span class="label">Phone:</span> 081 223 1100</p>
+    <p class="label">Sizes:</p>
+    <div class="sizes"><span>XS</span><span>S</span><span>M</span><span>L</span></div>
+    <p class="label">Colors:</p>
+    <div class="colors">
+        <div class="color-dot" style="background:white;"></div>
+        <div class="color-dot" style="background:beige;"></div>
+        <div class="color-dot" style="background:black;"></div>
+    </div>
+</div>
+
+<div class="shop-card" data-town="Kandy" data-sizes="M,L,XL" data-colors="Lavender,Pink">
+    <h3>Glitz – Kandy</h3>
+    <p><span class="label">Address:</span> Peradeniya Road, Kandy</p>
+    <p><span class="label">Phone:</span> 081 220 5500</p>
+    <p class="label">Sizes:</p>
+    <div class="sizes"><span>M</span><span>L</span><span>XL</span></div>
+    <p class="label">Colors:</p>
+    <div class="colors">
+        <div class="color-dot" style="background:lavender;"></div>
+        <div class="color-dot" style="background:pink;"></div>
+    </div>
+</div>
 
 </div>
 
+<script>
+function filterShops() {
+    const town = document.getElementById('townSelect').value;
+    const size = document.getElementById('sizeSelect').value;
+    const color = document.getElementById('colorSelect').value;
+
+    const cards = document.querySelectorAll('.shop-card');
+
+    cards.forEach(card => {
+        const cardTown = card.getAttribute('data-town');
+        const cardSizes = card.getAttribute('data-sizes').split(',');
+        const cardColors = card.getAttribute('data-colors').split(',');
+
+        const matchTown = town === "" || town === cardTown;
+        const matchSize = size === "" || cardSizes.includes(size);
+        const matchColor = color === "" || cardColors.includes(color);
+
+        card.style.display = (matchTown && matchSize && matchColor) ? "block" : "none";
+    });
+}
+</script>
+
 </body>
 </html>
+
