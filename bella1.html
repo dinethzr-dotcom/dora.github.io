@@ -3,103 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dora Clothing | Product Details</title>
+<title>Care Instruction for this Product</title>
 
 <style>
-    body { margin:0; font-family:Arial, sans-serif; background:#fafafa; color:#333; }
-
-    header {
-        background:#222;
-        color:white;
-        padding:15px;
-        text-align:center;
-        border-bottom:3px solid #ff66a3;
+    /* Global */
+    body { 
+        font-family: Arial, sans-serif;
+        background: #f1f1f1; 
+        margin: 0; 
+        padding: 0; 
+        color: #333; 
     }
 
-    nav {
-        background:#333;
-        padding:12px;
-        display:flex;
-        justify-content:center;
-        gap:20px;
-        flex-wrap:wrap;
+    /* Header */
+    header { 
+        background: #333; 
+        color: #fff; 
+        padding: 15px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        flex-wrap: wrap;
+        border-bottom: 3px solid #ff6699; /* Pink tone for women's wear */
     }
 
-    nav a {
-        color:white;
-        text-decoration:none;
-        font-weight:bold;
-        padding:6px 12px;
-        border-radius:6px;
-        transition:0.2s;
-    }
-    nav a:hover { background:#ff66a3; color:black; }
-
-    .container {
-        max-width:750px;
-        background:white;
-        margin:25px auto;
-        padding:25px;
-        border-radius:15px;
-        box-shadow:0 4px 14px rgba(0,0,0,0.15);
+    header img { 
+        height: 55px; 
+        margin-right: 15px; 
     }
 
-    h2 {
-        text-align:center;
-        color:#ff66a3;
-        margin-bottom:25px;
+    header h1 { 
+        margin: 0; 
+        font-size: 1.4em; 
+        font-weight: 600;
+        text-align: center;
     }
 
-    .info p {
-        display:flex;
-        gap:10px;
-        margin:10px 0;
-    }
-    .label {
-        font-weight:bold;
-        width:140px;
+    /* Navigation */
+    nav { 
+        background: #222; 
+        padding: 12px 5px; 
+        display: flex; 
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
     }
 
-    @media (max-width:600px) {
-        header h1 { font-size:1.3em; }
-        .info p { flex-direction:column; }
-        .label { width:100%; }
+    nav a { 
+        color: white; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 0.95em; 
+        padding: 6px 12px;
+        border-radius: 6px;
+        transition: 0.2s;
+    }
+
+    nav a:hover { 
+        background: #ff6699; 
+        color: #111; 
+    }
+
+    /* Main Container */
+    .content { 
+        max-width: 750px;
+        margin: 25px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+
+    h2 { 
+        text-align: center; 
+        color: #222; 
+        margin-bottom: 20px; 
+        font-size: 1.3em; 
+        font-weight: bold;
+    }
+
+    /* Info Layout */
+    .info-block p { 
+        display: flex;
+        margin: 10px 0;
+        font-size: 1em;
+        flex-wrap: wrap;
+    }
+
+    .label { 
+        font-weight: bold; 
+        width: 150px;
+        color: #444; 
+    }
+
+    .warning { 
+        color: red; 
+        font-weight: bold; 
+    }
+
+    /* QR code */
+    .qr-container { 
+        display: flex; 
+        justify-content: center; 
+        margin: 20px 0;
+    }
+
+    .qr-icon { 
+        width: 70px; 
+        height: 70px;
+        background: url('https://upload.wikimedia.org/wikipedia/commons/2/2b/QR_icon.svg') no-repeat center;
+        background-size: contain;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+
+    .qr-icon:hover { 
+        transform: scale(1.15); 
+    }
+
+    /* Mobile Fixes */
+    @media (max-width: 600px) {
+
+        header { 
+            flex-direction: column;
+            text-align: center;
+        }
+
+        header img {
+            margin: 0 0 10px 0;
+        }
+
+        .content {
+            width: 92%;
+            padding: 20px;
+        }
+
+        .info-block p {
+            flex-direction: column;
+        }
+
+        .label {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        nav a {
+            font-size: 0.9em;
+            padding: 8px 10px;
+        }
     }
 </style>
 </head>
 
 <body>
 
-<header><h1>DORA CLOTHING</h1></header>
+<header>
+    <img src="https://i.pinimg.com/1200x/e2/70/69/e270690ac163a85901930de53840ed4d.jpg" alt="Moose Logo">
+    <h1>Care Instruction for this Product</h1>
+</header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="bella.html">Dora Products</a>
-    <a href="bella1.html">Details</a>
+    <a href="index.html">Shops</a>
+    <a href="moosecare.html">Care Instructions</a>
+    <a href="moosejustdropped.html">Just Dropped</a>
 </nav>
 
-<div class="container">
+<div class="content">
+
     <h2>Product Details</h2>
 
-    <img src="https://via.placeholder.com/500x600" style="width:100%; border-radius:12px; margin-bottom:20px;">
-
-    <div class="info">
-        <p><span class="label">Product:</span> Elegant Pink Top</p>
-        <p><span class="label">Material:</span> 100% Cotton</p>
-        <p><span class="label">Size:</span> S / M / L / XL</p>
-        <p><span class="label">Price:</span> Rs. 1,950</p>
+    <div class="info-block">
+        <p><span class="label">Brand:</span> DORA</p>
+        <p><span class="label">Product:</span> WOMEN'S BLOUSE</p>
+        <p><span class="label">Size:</span> XL</p>
+        <p><span class="label">Material:</span> 100% COTTON</p>
+        <p><span class="label">Fit:</span> REGULAR FIT</p>
+        <p><span class="label">Made in:</span> Sri Lanka</p>
+        <p><span class="label">RN:</span> 435676</p>
     </div>
 
     <h2>Care Instructions</h2>
 
-    <div class="info">
-        <p><span class="label">Wash:</span> Cold wash 30°C</p>
-        <p><span class="label">Iron:</span> Medium heat</p>
-        <p><span class="label">Dry:</span> Line dry only</p>
-        <p><span class="label">Bleach:</span> Do not bleach</p>
+    <div class="info-block">
+        <p><span class="label">WASH:</span> Hand wash cold (≤ 30°C)</p>
+        <p><span class="label">BLEACH:</span> Do not bleach</p>
+        <p><span class="label">DRY:</span> Hang dry / Line dry</p>
+        <p><span class="label">IRON:</span> Low iron (≤ 110°C)</p>
+        <p><span class="label">DRY CLEAN:</span> Recommended</p>
+        <p><span class="label">WRING:</span> Do not wring</p>
+        <p class="warning"><span class="label">FIRE:</span> Keep away from fire</p>
+    </div>
+
+    <div class="qr-container">
+        <div class="qr-icon"></div>
     </div>
 
 </div>
 
 </body>
 </html>
+
