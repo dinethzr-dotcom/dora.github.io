@@ -3,128 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dora Ladies' T-Shirt Shops</title>
+<title>Dora Available Shops</title>
 
 <style>
-body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background: #f9f9f9; 
-    margin:0; 
-    padding:0; 
-    color: #333; 
+body{
+    font-family: 'Segoe UI', sans-serif;
+    margin:0;
+    background:#f8f8f8;
 }
 
-/* ================= HEADER ================= */
-header {
-    background: linear-gradient(90deg, #FFB6C1, #FF69B4);
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+/* HEADER */
+header{
+    background:linear-gradient(90deg,#FFB6C1,#FF69B4);
+    display:flex;
+    align-items:center;
+    padding:15px 30px;
 }
 
-header img {
-    height: 55px;
-    border-radius: 8px;
+header img{
+    height:55px;
+    border-radius:8px;
 }
 
-header h1 {
-    flex: 1;
-    text-align: center;
-    margin: 0;
-    font-size: 1.8rem;
-    color: white;
-    font-weight: 600;
+header h1{
+    flex:1;
+    text-align:center;
+    color:white;
+    margin:0;
 }
 
-/* ================= NAVBAR ================= */
-nav {
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 12px 0;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+/* NAV */
+nav{
+    background:white;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-nav a {
-    text-decoration: none;
-    color: #FF69B4;
-    font-weight: 600;
-    font-size: 1rem;
-    position: relative;
-    transition: 0.3s;
+nav a{
+    text-decoration:none;
+    color:#FF69B4;
+    font-weight:600;
 }
 
-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background: #FF69B4;
-    left: 0;
-    bottom: -5px;
-    transition: 0.3s;
+/* FILTER */
+.filters{
+    text-align:center;
+    margin:25px 0;
 }
 
-nav a:hover::after {
-    width: 100%;
-}
-
-nav a:hover {
-    color: #e0559e;
-}
-
-/* ================= FILTERS ================= */
-.filters { 
-    text-align:center; 
-    margin: 25px 0; 
-}
-
-select { 
-    padding:8px; 
-    margin:5px; 
+select{
+    padding:8px;
+    margin:5px;
     border-radius:6px;
     border:1px solid #ccc;
 }
 
-/* ================= SHOP CARDS ================= */
-.shop-container { 
-    display:flex; 
-    flex-wrap:wrap; 
-    justify-content:center; 
+/* SHOP CARDS */
+.shop-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
     gap:25px;
     padding:20px;
 }
 
-.shop-card { 
-    background:#fff; 
-    border-radius:15px; 
-    box-shadow:0 4px 15px rgba(0,0,0,0.15); 
-    width:300px; 
-    padding:20px; 
+.shop-card{
+    background:white;
+    width:300px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
     transition:0.3s;
 }
 
-.shop-card:hover {
-    transform: translateY(-5px);
+.shop-card:hover{
+    transform:translateY(-5px);
 }
 
-.sizes span, .colors span {
-    display:inline-block;
-    background:#f0f0f0;
+.sizes span,.colors span{
+    background:#f1f1f1;
     padding:4px 8px;
     margin:3px;
     border-radius:5px;
     font-size:0.8em;
+    display:inline-block;
 }
 
 iframe{
     width:100%;
     height:180px;
-    border:0;
     border-radius:10px;
+    border:0;
     margin-top:10px;
 }
 
@@ -133,31 +105,26 @@ iframe{
     color:white;
     border:none;
     padding:10px;
-    border-radius:8px;
-    cursor:pointer;
     width:100%;
+    border-radius:8px;
     margin-top:12px;
-    font-weight:600;
+    cursor:pointer;
 }
 
-.preorder-btn:hover{
-    background:#e0559e;
-}
-
-/* ================= MODAL ================= */
 .modal{
     display:none;
     position:fixed;
-    z-index:999;
-    left:0;top:0;
-    width:100%;height:100%;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
     background:rgba(0,0,0,0.6);
     justify-content:center;
     align-items:center;
 }
 
 .modal-content{
-    background:#fff;
+    background:white;
     padding:25px;
     border-radius:15px;
     width:90%;
@@ -169,8 +136,6 @@ iframe{
     width:100%;
     padding:10px;
     margin:8px 0;
-    border-radius:6px;
-    border:1px solid #ccc;
 }
 
 .close-btn{
@@ -183,7 +148,6 @@ iframe{
 #errorMsg{
     text-align:center;
     color:red;
-    font-weight:bold;
     display:none;
 }
 </style>
@@ -202,13 +166,12 @@ iframe{
 <a href="#">Details</a>
 </nav>
 
-<!-- FILTERS -->
 <div class="filters">
 <select id="townSelect" onchange="filterShops()">
 <option value="">--All Towns--</option>
-<option value="Gampaha">Gampaha</option>
-<option value="Kiribathgoda">Kiribathgoda</option>
-<option value="Kandy">Kandy</option>
+<option>Gampaha</option>
+<option>Kiribathgoda</option>
+<option>Kandy</option>
 </select>
 
 <select id="sizeSelect" onchange="filterShops()">
@@ -226,9 +189,91 @@ iframe{
 
 <div class="shop-container">
 
-<!-- 3 shops per town (same as your previous version) -->
-<!-- Your shop cards remain exactly the same as before -->
-<!-- Keeping this section unchanged to preserve filtering -->
+<!-- Gampaha -->
+<div class="shop-card" data-town="Gampaha" data-sizes="S,M,L,XL" data-colors="White,Black,Pink">
+<h3>Gampaha Fashion Hub</h3>
+<p><b>Town:</b> Gampaha</p>
+<p><b>Available Sizes:</b></p>
+<div class="sizes"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+<p><b>Available Colors:</b></p>
+<div class="colors"><span>White</span><span>Black</span><span>Pink</span></div>
+<iframe src="https://maps.google.com/maps?q=Gampaha&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+<button class="preorder-btn" onclick="openPreorder(this)">Pre-Order</button>
+</div>
+
+<div class="shop-card" data-town="Gampaha" data-sizes="XS,S,M" data-colors="Black,Pink">
+<h3>Style Point Gampaha</h3>
+<p><b>Town:</b> Gampaha</p>
+<div class="sizes"><span>XS</span><span>S</span><span>M</span></div>
+<div class="colors"><span>Black</span><span>Pink</span></div>
+<iframe src="https://maps.google.com/maps?q=Gampaha&t=&z=13&output=embed"></iframe>
+<button class="preorder-btn" onclick="openPreorder(this)">Pre-Order</button>
+</div>
+
+<div class="shop-card" data-town="Gampaha" data-sizes="M,L,XL,2XL" data-colors="White,Beige">
+<h3>Trend Wear Gampaha</h3>
+<p><b>Town:</b> Gampaha</p>
+<div class="sizes"><span>M</span><span>L</span><span>XL</span><span>2XL</span></div>
+<div class="colors"><span>White</span><span>Beige</span></div>
+<iframe src="https://maps.google.com/maps?q=Gampaha&t=&z=13&output=embed"></iframe>
+<button class="preorder-btn" onclick="openPreorder(this)">Pre-Order</button>
+</div>
+
+<!-- Kiribathgoda -->
+<div class="shop-card" data-town="Kiribathgoda" data-sizes="S,M,L" data-colors="Pink,Lavender">
+<h3>Kiribathgoda Fashion</h3>
+<p><b>Town:</b> Kiribathgoda</p>
+<div class="sizes"><span>S</span><span>M</span><span>L</span></div>
+<div class="colors"><span>Pink</span><span>Lavender</span></div>
+<iframe src="https://maps.google.com/maps?q=Kiribathgoda&t=&z=13&output=embed"></iframe>
+<button class="preorder-btn" onclick="openPreorder(this)">Pre-Order</button>
+</div>
+
+<div class="shop-card" data-town="Kiribathgoda" data-sizes="XS,S" data-colors="Black,White">
+<h3>Urban Wear KB</h3>
+<p><b>Town:</b> Kiribathgoda</p>
+<div class="sizes"><span>XS</span><span>S</span></div>
+<div class="colors"><span>Black</span><span>White</span></div>
+<iframe src="https://maps.google.com/maps?q=Kiribathgoda&t=&z=13&output=embed"></iframe>
+<button class="preorder-btn" onclick="openPreorder(this)">Pre-Order</button>
+</div>
+
+<div class="shop-card" data-town="Kiribathgoda" data-sizes="M,L,XL" data-colors="Beige,White">
+<h3>Elegance KB</h3>
+<p><b>Town:</b> Kiribathgoda</p>
+<div class="sizes"><span>M</span><span>L</span><span>XL</span></div>
+<div class="colors"><span>Beige</span><span>White</span></div>
+<iframe src="https://maps.google.com/maps?q=Kiribathgoda&t=&z=13&output=embed"></iframe>
+<button class="preorder-btn" onclick="openPreorder(this)">Pre-Order</button>
+</div>
+
+<!-- Kandy -->
+<div class="shop-card" data-town="Kandy" data-sizes="S,M,L,XL,2XL" data-colors="White,Black">
+<h3>Kandy Style House</h3>
+<p><b>Town:</b> Kandy</p>
+<div class="sizes"><span>S</span><span>M</span><span>L</span><span>XL</span><span>2XL</span></div>
+<div class="colors"><span>White</span><span>Black</span></div>
+<iframe src="https://maps.google.com/maps?q=Kandy&t=&z=13&output=embed"></iframe>
+<button class="preorder-btn" onclick="openPreorder(this)">Pre-Order</button>
+</div>
+
+<div class="shop-card" data-town="Kandy" data-sizes="XS,S,M" data-colors="Pink,Black">
+<h3>City Fashion Kandy</h3>
+<p><b>Town:</b> Kandy</p>
+<div class="sizes"><span>XS</span><span>S</span><span>M</span></div>
+<div class="colors"><span>Pink</span><span>Black</span></div>
+<iframe src="https://maps.google.com/maps?q=Kandy&t=&z=13&output=embed"></iframe>
+<button class="preorder-btn" onclick="openPreorder(this)">Pre-Order</button>
+</div>
+
+<div class="shop-card" data-town="Kandy" data-sizes="L,XL,2XL" data-colors="Lavender,Beige">
+<h3>Royal Trends Kandy</h3>
+<p><b>Town:</b> Kandy</p>
+<div class="sizes"><span>L</span><span>XL</span><span>2XL</span></div>
+<div class="colors"><span>Lavender</span><span>Beige</span></div>
+<iframe src="https://maps.google.com/maps?q=Kandy&t=&z=13&output=embed"></iframe>
+<button class="preorder-btn" onclick="openPreorder(this)">Pre-Order</button>
+</div>
 
 </div>
 
@@ -239,44 +284,38 @@ iframe{
 <div class="modal-content">
 <span class="close-btn" onclick="closePreorder()">✖</span>
 <h3>Pre-Order Dora T-Shirt</h3>
-
 <input type="text" id="shopName" readonly>
 <input type="text" id="customerName" placeholder="Your Name">
 <input type="tel" id="customerPhone" placeholder="Phone Number">
-
 <select id="preorderSize">
 <option value="">Select Size</option>
 <option>XS</option><option>S</option><option>M</option>
 <option>L</option><option>XL</option><option>2XL</option>
 </select>
-
 <select id="preorderColor">
 <option value="">Select Color</option>
 <option>White</option><option>Black</option>
 <option>Pink</option><option>Lavender</option><option>Beige</option>
 </select>
-
-<button onclick="submitPreorder()" class="preorder-btn">
-Submit Pre-Order
-</button>
+<button class="preorder-btn" onclick="submitPreorder()">Submit</button>
 </div>
 </div>
 
 <script>
 function filterShops(){
-const town=document.getElementById("townSelect").value;
-const size=document.getElementById("sizeSelect").value;
-const color=document.getElementById("colorSelect").value;
+let town=document.getElementById("townSelect").value;
+let size=document.getElementById("sizeSelect").value;
+let color=document.getElementById("colorSelect").value;
 
-const cards=document.querySelectorAll(".shop-card");
+let cards=document.querySelectorAll(".shop-card");
 let visible=0;
 
 cards.forEach(card=>{
-const matchTown= town==="" || card.dataset.town===town;
-const matchSize= size==="" || card.dataset.sizes.split(",").includes(size);
-const matchColor= color==="" || card.dataset.colors.split(",").includes(color);
+let matchTown=!town||card.dataset.town===town;
+let matchSize=!size||card.dataset.sizes.includes(size);
+let matchColor=!color||card.dataset.colors.includes(color);
 
-if(matchTown && matchSize && matchColor){
+if(matchTown&&matchSize&&matchColor){
 card.style.display="block";
 visible++;
 }else{
@@ -285,11 +324,11 @@ card.style.display="none";
 });
 
 document.getElementById("errorMsg").style.display=
-visible===0 ? "block":"none";
+visible===0?"block":"none";
 }
 
 function openPreorder(btn){
-const shop=btn.closest(".shop-card").querySelector("h3").innerText;
+let shop=btn.parentElement.querySelector("h3").innerText;
 document.getElementById("shopName").value=shop;
 document.getElementById("preorderModal").style.display="flex";
 }
@@ -299,10 +338,10 @@ document.getElementById("preorderModal").style.display="none";
 }
 
 function submitPreorder(){
-const name=document.getElementById("customerName").value;
-const phone=document.getElementById("customerPhone").value;
-const size=document.getElementById("preorderSize").value;
-const color=document.getElementById("preorderColor").value;
+let name=document.getElementById("customerName").value;
+let phone=document.getElementById("customerPhone").value;
+let size=document.getElementById("preorderSize").value;
+let color=document.getElementById("preorderColor").value;
 
 if(!name||!phone||!size||!color){
 alert("Please fill all fields!");
